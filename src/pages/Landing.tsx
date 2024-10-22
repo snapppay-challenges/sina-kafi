@@ -11,7 +11,7 @@ export default function Landing() {
         <SearchForm />
       </div>
 
-      {contactList.length === 0 ? (
+      {!isFetching && contactList.length === 0 ? (
         <p className="text-center text-gray-500 mt-4">No data to show</p>
       ) : (
         <>

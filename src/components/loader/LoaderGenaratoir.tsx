@@ -6,7 +6,7 @@ const LoaderGenerator = ({ number }: { number: number }) => {
       {[...Array(number)].map((_, index) => (
         <div
           key={index}
-          className="w-full h-45 bg-gray-200 animate-pulse rounded-lg"
+          className="w-full !h-52 bg-gray-200 animate-pulse rounded-lg"
         ></div>
       ))}
     </>
