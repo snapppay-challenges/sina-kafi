@@ -14,3 +14,11 @@ export const mergeUniqueContacts = <T extends { id: number }>(
 
   return uniqueContacts;
 };
+export function sanitizeInput(input: string) {
+  return input
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
