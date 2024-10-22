@@ -26,7 +26,6 @@ const Header = () => {
             alt="snappay logo"
             className="rounded-full block"
             loading="lazy"
-            style={{ display: "block" }}
           />
         </a>
       </nav>

@@ -1,75 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState, useCallback } from "react";
-import { services } from "../services";
 import ContactCard from "../components/card/ContactCard";
-import { useVisitedContacts } from "../hooks/useVisitedContacts";
-import { mergeUniqueContacts } from "../utils/helper";
 import SearchForm from "../components/template/SearchField";
 import LoaderGenerator from "../components/loader/LoaderGenaratoir";
-import { useSearchParams } from "react-router-dom";
+import useLanding from "../hooks/useLanding";
 
 export default function Landing() {
-  const [contactList, setContactList] = useState<IContact[]>([]);
-  const { visitedContacts } = useVisitedContacts();
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const page = Number(searchParams.get("page")) || 0;
-  const searchTerm = searchParams.get("search");
-  const parsedSearchTerm = searchTerm ? JSON.parse(searchTerm) : {};
-
-  const { data, isFetching } = useQuery(
-    ["contacts", page, searchTerm],
-    async () => {
-      const response = await services.contactServices.getContacts(
-        page,
-        parsedSearchTerm
-      );
-      return response.data;
-    },
-    {
-      onSuccess: (newData) => {
-        const { items } = newData || { items: [] };
-        const noSearchTerm =
-          !parsedSearchTerm.name &&
-          !parsedSearchTerm.lastName &&
-          !parsedSearchTerm.phone;
-
-        setContactList((prev) =>
-          mergeUniqueContacts([
-            noSearchTerm ? visitedContacts : [],
-            page === 0 ? [] : prev,
-            items,
-          ])
-        );
-      },
-    }
-  );
-
-  const totalPages = data ? Math.ceil(data.meta.total / data.meta.limit) : 0;
-  const hasNextPage = page < totalPages - 1;
-
-  const handleScroll = useCallback(() => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (
-      scrollTop + clientHeight >= scrollHeight - 150 &&
-      hasNextPage &&
-      !isFetching
-    ) {
-      setSearchParams((prevParams) => {
-        const newPage = page + 1;
-        return new URLSearchParams({
-          ...Object.fromEntries(prevParams.entries()),
-          page: newPage.toString(),
-        });
-      });
-    }
-  }, [hasNextPage, isFetching, page, setSearchParams]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
+  const { contactList, hasNextPage, isFetching } = useLanding();
   return (
     <div className="w-full p-4 ">
       <div className="sticky top-16 pt-4  px-4 shadow-search  bg-white h-full w-full z-10">

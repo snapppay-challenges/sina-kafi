@@ -16,11 +16,12 @@ export default function SearchForm() {
   const handleSearch = useCallback(() => {
     const { name, lastName, phone } = inputValue;
     const newParams = new URLSearchParams(searchParams);
+    let inputStringify = JSON.stringify(inputValue);
     window.scroll(0, 0);
 
     if (name || lastName || phone) {
       newParams.delete("page");
-      newParams.set("search", JSON.stringify(inputValue));
+      newParams.set("search", inputStringify);
     } else {
       newParams.delete("search");
     }
