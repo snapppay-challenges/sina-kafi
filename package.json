@@ -50,7 +50,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.14",
-    "ts-loader": "^9.5.1",
     "webpack-bundle-analyzer": "^4.10.2"
   }
 }

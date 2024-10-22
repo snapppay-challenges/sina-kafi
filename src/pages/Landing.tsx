@@ -29,19 +29,18 @@ export default function Landing() {
     {
       onSuccess: (newData) => {
         const { items } = newData || { items: [] };
-        if (
+        const noSearchTerm =
           !parsedSearchTerm.name &&
           !parsedSearchTerm.lastName &&
-          !parsedSearchTerm.phone
-        ) {
-          setContactList((prev) =>
-            mergeUniqueContacts([visitedContacts, prev, items])
-          );
-        } else {
-          setContactList((prev) =>
-            page === 0 ? items : mergeUniqueContacts([prev, items])
-          );
-        }
+          !parsedSearchTerm.phone;
+
+        setContactList((prev) =>
+          mergeUniqueContacts([
+            noSearchTerm ? visitedContacts : [],
+            page === 0 ? [] : prev,
+            items,
+          ])
+        );
       },
     }
   );
@@ -70,6 +69,7 @@ export default function Landing() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+
   return (
     <div className="w-full p-4 ">
       <div className="sticky top-16 pt-4  px-4 shadow-search  bg-white h-full w-full z-10">

@@ -4,7 +4,6 @@ import { useSearchParams } from "react-router-dom";
 
 export default function SearchForm() {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const searchTerm = searchParams.get("search");
   const parsedSearchTerm = searchTerm ? JSON.parse(searchTerm) : {};
 
@@ -17,6 +16,7 @@ export default function SearchForm() {
   const handleSearch = useCallback(() => {
     const { name, lastName, phone } = inputValue;
     const newParams = new URLSearchParams(searchParams);
+    window.scroll(0, 0);
 
     if (name || lastName || phone) {
       newParams.delete("page");
