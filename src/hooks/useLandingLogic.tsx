@@ -5,15 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import { mergeUniqueContacts } from "../utils/helper";
 import { services } from "../services";
 
-const useLanding = () => {
-  const [contactList, setContactList] = useState<IContact[]>([]);
-  const { visitedContacts } = useVisitedContacts();
-
+const useLandingLogic = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = Number(searchParams.get("page")) || 0;
-
   const searchTerm = searchParams.get("search");
   const parsedSearchTerm = searchTerm ? JSON.parse(searchTerm) : {};
+  const { visitedContacts } = useVisitedContacts();
+  const [contactList, setContactList] = useState<IContact[]>([]);
 
   const { data, isFetching } = useQuery(
     ["contacts", page, searchTerm],
@@ -71,4 +69,4 @@ const useLanding = () => {
   return { contactList, hasNextPage, isFetching };
 };
 
-export default useLanding;
+export default useLandingLogic;

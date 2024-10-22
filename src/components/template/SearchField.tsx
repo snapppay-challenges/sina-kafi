@@ -36,7 +36,6 @@ export default function SearchForm() {
 
   const removeSearch = (key: string) => {
     setInputValue((prev) => ({ ...prev, [key]: "" }));
-    handleSearch();
   };
 
   useDebounceEffect(handleSearch, [inputValue], 500);
