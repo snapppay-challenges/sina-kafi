@@ -94,7 +94,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
   - ### Cons
 
-    - Lifted page in the url and if you get more pages (ex: 10) then refresh the page you'll lose first 9 pages of contacts.
+    - Lifted page up in the url and if you get more pages (ex: 10) then refresh the page you'll lose first 9 pages of contacts.
     - Missing request cancelation.
     - Requesting for contacts list on navigating to the contact details page (WHY?).
     - All implementations in the first commit. Commit messages are not well structured.
