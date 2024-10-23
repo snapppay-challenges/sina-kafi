@@ -46,35 +46,60 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 - [ ] Main functionalities: These items SHOULD work correctly
-  - [ ] List view
-    - [ ] Show list of contacts properly with image, name, and tel and be clickable (The tel has been ignored)
-    - [ ] Handle server errors
-  - [ ] Pagination
-    - [ ] Infinite scroll/page number button
-    - [ ] Handle loading and end of the list => It handles end of the list
-  - [ ] Detail view
-    - [ ] Handle routing properly
-    - [ ] Handle server errors
-    - [ ] Handle routing error on manually changing the detail id
-  - [ ] Search
-    - [ ] Using Debounce 
-    - [ ] Handle multiple requests
-    - [ ] Search by first name, last name, and telephone => Search by last name is overlooked
-  - [ ] Most visited contacts
-    - [ ] Handle incorrect items in the list (e.g., when you manually change the detail page address) => It shows a not found message
+  - [x] List view
+    - [x] Show list of contacts properly with image, name, and tel and be clickable (The tel has been ignored)
+    - [x] Handle server errors
+  - [x] Pagination
+    - [x] Infinite scroll/page number button
+    - [x] Handle loading and end of the list => It handles end of the list
+  - [x] Detail view
+    - [x] Handle routing properly
+    - [x] Handle server errors
+    - [x] Handle routing error on manually changing the detail id
+  - [x] Search
+    - [x] Using Debounce
+    - [x] Handle multiple requests
+    - [x] Search by first name, last name, and telephone => Search by last name is overlooked
+  - [x] Most visited contacts
+    - [x] Handle incorrect items in the list (e.g., when you manually change the detail page address) => It shows a not found message
 - [ ] Clean code:
-  - [ ] Well-structured project
-  - [ ] Separate concerns
-  - [ ] Component-thinking
-  - [ ] Simple to understand and less complexity
-  - [ ] No over-engineering
-  - [ ] Avoid bad-practice patterns (e.g., multi re-rendering components, useEffect chaining)
-  - [ ] No acute performance issues
-  - [ ] Using pure CSS in a good way / Using CSS frameworks like Tailwind without extra complexity
+  - [x] Well-structured project
+  - [x] Separate concerns
+  - [x] Component-thinking
+  - [x] Simple to understand and less complexity
+  - [x] No over-engineering
+  - [x] Avoid bad-practice patterns (e.g., multi re-rendering components, useEffect chaining)
+  - [ ] No acute performance issues - (Ali BM: Missing virtualization)
+  - [x] Using pure CSS in a good way / Using CSS frameworks like Tailwind without extra complexity
 - [ ] Plus points and nice to have: DON’T judge just based on lack of these items; they should be better compared to other competitors:
 
   - [ ] Creativity or eye-catching design
   - [ ] Using absolute path
   - [ ] Using ESLint
-  - [ ] Using TypeScript in a best practice way (otherwise is a negative point)
+  - [x] Using TypeScript in a best practice way (otherwise is a negative point)
   - [ ] Using (unit/e2e) Test in an applicable way not just writing some samples
+
+# Code Review
+
+- ## Ali BM
+
+  - ### Pros
+
+    - Good file and folder structure.
+    - Fimilar with testing.
+    - Using typescript in a good way.
+    - Written debounce by himself.
+    - Good separation of concerns.
+    - Implemented `LazyImage` component.
+    - Using CSS module.
+
+  - ### Cons
+
+    - Lifted page in the url and if you get more pages (ex: 10) then refresh the page you'll lose first 9 pages of contacts.
+    - Missing request cancelation.
+    - Requesting for contacts list on navigating to the contact details page (WHY?).
+    - All implementations in the first commit. Commit messages are not well structured.
+    - No virtualization.
+
+  - ### Conclusion
+    - I think code base is good enough to pass this step.
