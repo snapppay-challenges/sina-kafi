@@ -45,7 +45,7 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-- [ ] Main functionalities: These items SHOULD work correctly
+- [x] Main functionalities: These items SHOULD work correctly
   - [x] List view
     - [x] Show list of contacts properly with image, name, and tel and be clickable (The tel has been ignored)
     - [x] Handle server errors
