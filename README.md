@@ -86,7 +86,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
   - ### Pros
 
     - Good file and folder structure.
-    - Fimilar with testing.
+    - Familiar with testing.
     - Using typescript in a good way.
     - Written debounce by himself.
     - Good separation of concerns.
