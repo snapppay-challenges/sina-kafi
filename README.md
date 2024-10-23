@@ -91,7 +91,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
     - Written debounce by himself.
     - Good separation of concerns.
     - Implemented `LazyImage` component.
-    - Using CSS module.
 
   - ### Cons
 
