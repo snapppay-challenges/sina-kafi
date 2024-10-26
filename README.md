@@ -101,18 +101,32 @@ To learn React, check out the [React documentation](https://reactjs.org/).
     - No virtualization.
 
   - ### Conclusion
+
     - I think code base is good enough to pass this step.
-   
+
   - ## Mohammadreza
+
     agree with Ali's points
-    
+
   - ### Pros
+
     - main functionalities are working properly
     - separation of concerns is good
   
   - ### Cons
+
     - pagination with URL is the main negative point
     - we can ignore virtualization for this step
- 
+
   - ### Conclusion
+
     - He can be a good candidate for our mid-level position
+
+  - ## Sina
+
+    - no third party lib has been used for debouncing
+    - namings could be a bit better
+    - seperation of concerns
+    - correct error handing
+
+    in total : we can continue with him for the next step
