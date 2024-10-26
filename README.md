@@ -102,3 +102,17 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
   - ### Conclusion
     - I think code base is good enough to pass this step.
+   
+  - ## Mohammadreza
+    agree with Ali's points
+    
+  - ### Pros
+    - main functionalities are working properly
+    - separation of concerns is good
+  
+  - ### Cons
+    - pagination with URL is the main negative point
+    - we can ignore virtualization for this step
+ 
+  - ### Conclusion
+    - He can be a good candidate for our mid-level position
